@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #e6fff2;
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .board {
+            background-color: rgb(250, 16, 16);
+            width: 300px;
+            margin: 40px auto;
+
+        }
+
+        .box {
+            background-color: black;
+            height: 100px;
+            width: 100px;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: aliceblue;
+
+
+
+
+        }
+
+        .box:hover {
+            background-color: white;
+            box-shadow: 0px 0px 10px 1px gray;
+            cursor: pointer;
+            border-radius: 5px;
+            color: black;
+
+
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .h {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+
+        }
+
+        .current {
+            margin-left: 600px;
+            font-size: 20px;
+            color: black;
+
+            font-size: 30px;
+        }
+
+        button {
+            position: relative;
+            padding: 10px 20px;
+            border-radius: 7px;
+            border: 1px solid rgb(61, 106, 255);
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 2px;
+            background: transparent;
+            color: black;
+            overflow: hidden;
+            box-shadow: 0 0 0 0 transparent;
+            -webkit-transition: all 0.2s ease-in;
+            -moz-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+            cursor: pointer;
+            margin-left: 650px;
+        }
+
+        button:hover {
+            background: rgb(61, 106, 255);
+            box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+            -webkit-transition: all 0.2s ease-out;
+            -moz-transition: all 0.2s ease-out;
+            transition: all 0.2s ease-out;
+        }
+
+        button:hover::before {
+            -webkit-animation: sh02 0.5s 0s linear;
+            -moz-animation: sh02 0.5s 0s linear;
+            animation: sh02 0.5s 0s linear;
+        }
+
+        button::before {
+            content: '';
+            display: block;
+            width: 0px;
+            height: 86%;
+            position: absolute;
+            top: 7%;
+            left: 0%;
+            opacity: 0;
+            background: #fff;
+            box-shadow: 0 0 50px 30px #fff;
+            -webkit-transform: skewX(-20deg);
+            -moz-transform: skewX(-20deg);
+            -ms-transform: skewX(-20deg);
+            -o-transform: skewX(-20deg);
+            transform: skewX(-20deg);
+        }
+
+        @keyframes sh02 {
+            from {
+                opacity: 0;
+                left: 0%;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                left: 100%;
+            }
+        }
+
+        button:active {
+            box-shadow: 0 0 0 0 transparent;
+            -webkit-transition: box-shadow 0.2s ease-in;
+            -moz-transition: box-shadow 0.2s ease-in;
+            transition: box-shadow 0.2s ease-in;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-content button {
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .modal-content button:hover {
+            background-color: #cc0000;
+        }
+
+        .main {
+            position: relative;
+            height: 300px;
+            width: 300px;
+            background-color: #ff0000;
+
+
+        }
+
+
+        #popop {
+            visibility: hidden;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+
+        #popop .he {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+
+        #popop .p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .boy {
+            height: 50px;
+            width: 50px;
+        }
+
+        .girl {
+            height: 50px;
+            width: 50px;
+        }
+        #btnrestart{
+            position: absolute;
+            margin-top: 0px;
+            margin-left: 0px;
+        }
+       
+
+/* CSS */
+.button-82-pushable {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: 10px;
+}
+
+.button-82-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+.button-82-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+    to left,
+    hsl(340deg 100% 16%) 0%,
+    hsl(340deg 100% 32%) 8%,
+    hsl(340deg 100% 32%) 92%,
+    hsl(340deg 100% 16%) 100%
+  );
+}
+
+.button-82-front {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: white;
+  background: hsl(345deg 100% 47%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+@media (min-width: 768px) {
+  .button-82-front {
+    font-size: 1.25rem;
+    padding: 12px 42px;
+  }
+}
+
+.button-82-pushable:hover {
+  filter: brightness(110%);
+  -webkit-filter: brightness(110%);
+}
+
+.button-82-pushable:hover .button-82-front {
+  transform: translateY(-6px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-82-pushable:active .button-82-front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.button-82-pushable:hover .button-82-shadow {
+  transform: translateY(4px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-82-pushable:active .button-82-shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.button-82-pushable:focus:not(:focus-visible) {
+  outline: none;
+}
+    </style>
+</head>
+
+<body>
+
+    <h1 class="h">Tic Toc Toe</h1>
+    <p class="current">current player-<span id="curet-play">x<span></p>
+    <div class="board">
+        <div class="row">
+            <div class="box" onclick="selector(0)"></div>
+            <div class="box" onclick="selector(1)"></div>
+            <div class="box" onclick="selector(2)"></div>
+
+
+        </div>
+        <div class="row">
+            <div class="box" onclick="selector(3)"></div>
+            <div class="box" onclick="selector(4)"></div>
+            <div class="box" onclick="selector(5)"></div>
+
+
+        </div>
+        <div class="row">
+            <div class="box" onclick="selector(6)"></div>
+            <div class="box" onclick="selector(7)"></div>
+            <div class="box" onclick="selector(8)"></div>
+
+
+        </div>
+
+
+
+    </div>
+  
+
+    <div class="drawn" id="popop">
+
+        <p class="he">Match Draw!</p>
+        <p class="p">do you want to play again </p>
+        
+<button class="button-82-pushable" type="button1" onclick="location.reload()">
+    <span class="button-82-shadow"></span>
+    <span class="button-82-edge"></span>
+    <span class="button-82-front text">
+      ok
+    </span>
+  </button>
+
+
+
+
+
+
+    </div>
+    <button type="button" onclick="location.reload()">Restart</button>
+
+
+    <script>
+        const board = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
+        let currentPlayer = 'x';
+
+        function render() {
+            const boxes = document.querySelectorAll('.box');
+            boxes.forEach((box, index) => {
+                if (board[index] === 'x') {
+                    box.innerHTML = '   <img src="boy.png" alt="" class = "boy">'
+                } else if (board[index] === 'o') {
+                    box.innerHTML = '   <img src="girl.png" alt="" class  = "girl">';
+                } else {
+                    box.innerHTML = '';
+                }
+            })
+
+        }
+        function selector(index) {
+            if (board[index] !== -1) {
+                alert('invalid move')
+                return;
+            }
+            board[index] = currentPlayer;
+            render();
+            if (currentPlayer === 'x') {
+                currentPlayer = 'o';
+            } else {
+                currentPlayer = 'x';
+            }
+
+            let currentPlayerele = document.getElementById('curet-play')
+            currentPlayerele.innerText = currentPlayer;
+
+            winpattern()
+            checkDraw()
+
+
+
+
+
+        }
+
+
+        function isplayer(places, players) {
+            let a = places[0];
+            let b = places[1];
+            let c = places[2];
+            if (board[a] == players && board[b] == players && board[c] == players) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        function winpattern() {
+            if (isplayer([0, 1, 2], 'x')) {
+                alert('x wins')
+            } else if (isplayer([3, 4, 5], 'x')) {
+                alert('x wins')
+            } else if (isplayer([6, 7, 8], 'x')) {
+                alert('x wins')
+            } else if (isplayer([0, 3, 6], 'x')) {
+                alert('x wins')
+            } else if (isplayer([1, 4, 7], 'x')) {
+                alert('x wins')
+            } else if (isplayer([2, 5, 8], 'x')) {
+                alert('x wins')
+            } else if (isplayer([0, 4, 8], 'x')) {
+                alert('x wins')
+            } else if (isplayer([2, 4, 6], 'x')) {
+                alert('x wins')
+            }
+
+            if (isplayer([0, 1, 2], 'o')) {
+                alert('o wins')
+            } else if (isplayer([3, 4, 5], 'o')) {
+                alert('o wins')
+            } else if (isplayer([6, 7, 8], 'o')) {
+                alert('o wins')
+            } else if (isplayer([0, 3, 6], 'o')) {
+                alert('o wins')
+            } else if (isplayer([1, 4, 7], 'o')) {
+                alert('o wins')
+            } else if (isplayer([2, 5, 8], 'o')) {
+                alert('o wins')
+            } else if (isplayer([0, 4, 8], 'o')) {
+                alert('o wins')
+            } else if (isplayer([2, 4, 6], 'o')) {
+                alert('o wins')
+            }
+
+
+
+        }
+        function checkDraw() {
+            let pop = document.getElementById('popop');
+            let btn1 = document.getElementById('btn')
+
+
+
+            if (!board.includes(-1)) {
+                pop.style.visibility = 'visible'
+
+
+            }
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
