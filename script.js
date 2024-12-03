@@ -1,12 +1,12 @@
 const board = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
-let currentPlayer = 'x';
+let currentPlayer = 'Boy';
 
 function render() {
     const boxes = document.querySelectorAll('.box');
     boxes.forEach((box, index) => {
-        if (board[index] === 'x') {
+        if (board[index] === 'Boy') {
             box.innerHTML = '   <img src="./img/boy.png" alt="" class = "boy">'
-        } else if (board[index] === 'o') {
+        } else if (board[index] === 'girl') {
             box.innerHTML = '   <img src="./img/girl.png" alt="" class  = "girl">';
         } else {
             box.innerHTML = '';
@@ -21,10 +21,10 @@ function selector(index) {
     }
     board[index] = currentPlayer;
     render();
-    if (currentPlayer === 'x') {
-        currentPlayer = 'o';
+    if (currentPlayer === 'Boy') {
+        currentPlayer = 'girl';
     } else {
-        currentPlayer = 'x';
+        currentPlayer = 'Boy';
     }
 
     let currentPlayerele = document.getElementById('curet-play')
@@ -52,40 +52,40 @@ function isplayer(places, players) {
 }
 
 function winpattern() {
-    if (isplayer([0, 1, 2], 'x')) {
-        alert('x wins')
-    } else if (isplayer([3, 4, 5], 'x')) {
-        alert('x wins')
-    } else if (isplayer([6, 7, 8], 'x')) {
-        alert('x wins')
-    } else if (isplayer([0, 3, 6], 'x')) {
-        alert('x wins')
-    } else if (isplayer([1, 4, 7], 'x')) {
-        alert('x wins')
-    } else if (isplayer([2, 5, 8], 'x')) {
-        alert('x wins')
-    } else if (isplayer([0, 4, 8], 'x')) {
-        alert('x wins')
-    } else if (isplayer([2, 4, 6], 'x')) {
-        alert('x wins')
+    if (isplayer([0, 1, 2], 'Boy')) {
+        alert('Boy wins')
+    } else if (isplayer([3, 4, 5], 'Boy')) {
+        alert('Boy wins')
+    } else if (isplayer([6, 7, 8], 'Boy')) {
+        alert('Boy wins')
+    } else if (isplayer([0, 3, 6], 'Boy')) {
+        alert('Boy wins')
+    } else if (isplayer([1, 4, 7], 'Boy')) {
+        alert('Boy wins')
+    } else if (isplayer([2, 5, 8], 'Boy')) {
+        alert('Boy wins')
+    } else if (isplayer([0, 4, 8], 'Boy')) {
+        alert('Boy wins')
+    } else if (isplayer([2, 4, 6], 'BOY')) {
+        alert('Boy wins')
     }
 
-    if (isplayer([0, 1, 2], 'o')) {
-        alert('o wins')
-    } else if (isplayer([3, 4, 5], 'o')) {
-        alert('o wins')
-    } else if (isplayer([6, 7, 8], 'o')) {
-        alert('o wins')
-    } else if (isplayer([0, 3, 6], 'o')) {
-        alert('o wins')
-    } else if (isplayer([1, 4, 7], 'o')) {
-        alert('o wins')
-    } else if (isplayer([2, 5, 8], 'o')) {
-        alert('o wins')
-    } else if (isplayer([0, 4, 8], 'o')) {
-        alert('o wins')
-    } else if (isplayer([2, 4, 6], 'o')) {
-        alert('o wins')
+    if (isplayer([0, 1, 2], 'girl')) {
+        alert('girl wins')
+    } else if (isplayer([3, 4, 5], 'girl')) {
+        alert('girl wins')
+    } else if (isplayer([6, 7, 8], 'girl')) {
+        alert('girl wins')
+    } else if (isplayer([0, 3, 6], 'girl')) {
+        alert('girl wins')
+    } else if (isplayer([1, 4, 7], 'girl')) {
+        alert('girl wins')
+    } else if (isplayer([2, 5, 8], 'girl')) {
+        alert('girl wins')
+    } else if (isplayer([0, 4, 8], 'girl')) {
+        alert('girl wins')
+    } else if (isplayer([2, 4, 6], 'girl')) {
+        alert('girl wins')
     }
 
 
