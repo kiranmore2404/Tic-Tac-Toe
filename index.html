@@ -226,117 +226,108 @@
             height: 50px;
             width: 50px;
         }
-        #btnrestart{
+
+        #btnrestart {
             position: absolute;
             margin-top: 0px;
             margin-left: 0px;
         }
-       
 
-/* CSS */
-.button-82-pushable {
-  position: relative;
-  border: none;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  outline-offset: 4px;
-  transition: filter 250ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin-left: 10px;
-}
 
-.button-82-shadow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  background: hsl(0deg 0% 0% / 0.25);
-  will-change: transform;
-  transform: translateY(2px);
-  transition:
-    transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
-}
+        /* CSS */
+        .button-82-pushable {
+            position: relative;
+            border: none;
+            background: transparent;
+            padding: 0;
+            cursor: pointer;
+            outline-offset: 4px;
+            transition: filter 250ms;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            margin-left: 10px;
+        }
 
-.button-82-edge {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  background: linear-gradient(
-    to left,
-    hsl(340deg 100% 16%) 0%,
-    hsl(340deg 100% 32%) 8%,
-    hsl(340deg 100% 32%) 92%,
-    hsl(340deg 100% 16%) 100%
-  );
-}
+        .button-82-shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            background: hsl(0deg 0% 0% / 0.25);
+            will-change: transform;
+            transform: translateY(2px);
+            transition:
+                transform 600ms cubic-bezier(.3, .7, .4, 1);
+        }
 
-.button-82-front {
-  display: block;
-  position: relative;
-  padding: 12px 27px;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  color: white;
-  background: hsl(345deg 100% 47%);
-  will-change: transform;
-  transform: translateY(-4px);
-  transition:
-    transform
-    600ms
-    cubic-bezier(.3, .7, .4, 1);
-}
+        .button-82-edge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            background: linear-gradient(to left,
+                    hsl(340deg 100% 16%) 0%,
+                    hsl(340deg 100% 32%) 8%,
+                    hsl(340deg 100% 32%) 92%,
+                    hsl(340deg 100% 16%) 100%);
+        }
 
-@media (min-width: 768px) {
-  .button-82-front {
-    font-size: 1.25rem;
-    padding: 12px 42px;
-  }
-}
+        .button-82-front {
+            display: block;
+            position: relative;
+            padding: 12px 27px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            color: white;
+            background: hsl(345deg 100% 47%);
+            will-change: transform;
+            transform: translateY(-4px);
+            transition:
+                transform 600ms cubic-bezier(.3, .7, .4, 1);
+        }
 
-.button-82-pushable:hover {
-  filter: brightness(110%);
-  -webkit-filter: brightness(110%);
-}
+        @media (min-width: 768px) {
+            .button-82-front {
+                font-size: 1.25rem;
+                padding: 12px 42px;
+            }
+        }
 
-.button-82-pushable:hover .button-82-front {
-  transform: translateY(-6px);
-  transition:
-    transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
-}
+        .button-82-pushable:hover {
+            filter: brightness(110%);
+            -webkit-filter: brightness(110%);
+        }
 
-.button-82-pushable:active .button-82-front {
-  transform: translateY(-2px);
-  transition: transform 34ms;
-}
+        .button-82-pushable:hover .button-82-front {
+            transform: translateY(-6px);
+            transition:
+                transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+        }
 
-.button-82-pushable:hover .button-82-shadow {
-  transform: translateY(4px);
-  transition:
-    transform
-    250ms
-    cubic-bezier(.3, .7, .4, 1.5);
-}
+        .button-82-pushable:active .button-82-front {
+            transform: translateY(-2px);
+            transition: transform 34ms;
+        }
 
-.button-82-pushable:active .button-82-shadow {
-  transform: translateY(1px);
-  transition: transform 34ms;
-}
+        .button-82-pushable:hover .button-82-shadow {
+            transform: translateY(4px);
+            transition:
+                transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+        }
 
-.button-82-pushable:focus:not(:focus-visible) {
-  outline: none;
-}
+        .button-82-pushable:active .button-82-shadow {
+            transform: translateY(1px);
+            transition: transform 34ms;
+        }
+
+        .button-82-pushable:focus:not(:focus-visible) {
+            outline: none;
+        }
     </style>
 </head>
 
@@ -370,20 +361,20 @@
 
 
     </div>
-  
+
 
     <div class="drawn" id="popop">
 
         <p class="he">Match Draw!</p>
         <p class="p">do you want to play again </p>
-        
-<button class="button-82-pushable" type="button1" onclick="location.reload()">
-    <span class="button-82-shadow"></span>
-    <span class="button-82-edge"></span>
-    <span class="button-82-front text">
-      ok
-    </span>
-  </button>
+
+        <button class="button-82-pushable" type="button1" onclick="location.reload()">
+            <span class="button-82-shadow"></span>
+            <span class="button-82-edge"></span>
+            <span class="button-82-front text">
+                ok
+            </span>
+        </button>
 
 
 
@@ -394,112 +385,8 @@
     <button type="button" onclick="location.reload()">Restart</button>
 
 
-    <script>
-        const board = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
-        let currentPlayer = 'x';
+    <script src="script.js">
 
-        function render() {
-            const boxes = document.querySelectorAll('.box');
-            boxes.forEach((box, index) => {
-                if (board[index] === 'x') {
-                    box.innerHTML = '   <img src="boy.png" alt="" class = "boy">'
-                } else if (board[index] === 'o') {
-                    box.innerHTML = '   <img src="girl.png" alt="" class  = "girl">';
-                } else {
-                    box.innerHTML = '';
-                }
-            })
-
-        }
-        function selector(index) {
-            if (board[index] !== -1) {
-                alert('invalid move')
-                return;
-            }
-            board[index] = currentPlayer;
-            render();
-            if (currentPlayer === 'x') {
-                currentPlayer = 'o';
-            } else {
-                currentPlayer = 'x';
-            }
-
-            let currentPlayerele = document.getElementById('curet-play')
-            currentPlayerele.innerText = currentPlayer;
-
-            winpattern()
-            checkDraw()
-
-
-
-
-
-        }
-
-
-        function isplayer(places, players) {
-            let a = places[0];
-            let b = places[1];
-            let c = places[2];
-            if (board[a] == players && board[b] == players && board[c] == players) {
-                return true
-            } else {
-                return false
-            }
-        }
-
-        function winpattern() {
-            if (isplayer([0, 1, 2], 'x')) {
-                alert('x wins')
-            } else if (isplayer([3, 4, 5], 'x')) {
-                alert('x wins')
-            } else if (isplayer([6, 7, 8], 'x')) {
-                alert('x wins')
-            } else if (isplayer([0, 3, 6], 'x')) {
-                alert('x wins')
-            } else if (isplayer([1, 4, 7], 'x')) {
-                alert('x wins')
-            } else if (isplayer([2, 5, 8], 'x')) {
-                alert('x wins')
-            } else if (isplayer([0, 4, 8], 'x')) {
-                alert('x wins')
-            } else if (isplayer([2, 4, 6], 'x')) {
-                alert('x wins')
-            }
-
-            if (isplayer([0, 1, 2], 'o')) {
-                alert('o wins')
-            } else if (isplayer([3, 4, 5], 'o')) {
-                alert('o wins')
-            } else if (isplayer([6, 7, 8], 'o')) {
-                alert('o wins')
-            } else if (isplayer([0, 3, 6], 'o')) {
-                alert('o wins')
-            } else if (isplayer([1, 4, 7], 'o')) {
-                alert('o wins')
-            } else if (isplayer([2, 5, 8], 'o')) {
-                alert('o wins')
-            } else if (isplayer([0, 4, 8], 'o')) {
-                alert('o wins')
-            } else if (isplayer([2, 4, 6], 'o')) {
-                alert('o wins')
-            }
-
-
-
-        }
-        function checkDraw() {
-            let pop = document.getElementById('popop');
-            let btn1 = document.getElementById('btn')
-
-
-
-            if (!board.includes(-1)) {
-                pop.style.visibility = 'visible'
-
-
-            }
-        }
 
 
 
