@@ -97,3 +97,12 @@ function checkDraw() {
         pop.style.visibility = 'visible'
     }
 }
+function restart(){
+    board.fill(-1);
+    render();
+    currentPlayer='x';
+    let currentPlayerele = document.getElementById('curet-play')
+    currentPlayerele.innerText = currentPlayer;
+
+
+}
